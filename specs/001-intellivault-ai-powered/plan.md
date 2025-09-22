@@ -31,7 +31,7 @@
 - Phase 3-4: Implementation execution (manual or via tools)
 
 ## Summary
-Deliver an AI-powered platform for multi-format document ingestion, semantic search, summarization, knowledge graph exploration, Q&A with citations, entity extraction, classification, analytics, and RBAC. Based on Phase 0 research and updated constraints, we will adopt a web (frontend + backend) architecture with TypeScript: Node.js services and a React frontend, deployed to Kubernetes on Azure Kubernetes Service (AKS). Core services will leverage Azure-managed offerings: Azure AI Search for vector/semantic retrieval, Azure OpenAI for LLM and embeddings, Azure Cosmos DB for operational data, and Azure Blob Storage for document storage. APIs are contract-first via OpenAPI, and all capabilities are invocable via CLI to satisfy CLI-first principles. Advanced analytics will be supported using Azure Data services integration (e.g., Azure Synapse/Analytics)
+Deliver an AI-powered platform for multi-format document ingestion, semantic search, summarization, knowledge graph exploration, Q&A with citations, entity extraction, classification, analytics, and RBAC. Based on Phase 0 research and updated constraints, we will adopt a web (frontend + backend) architecture with TypeScript: Node.js services and a React frontend, deployed to Kubernetes on Azure Kubernetes Service (AKS). Core services will leverage Azure-managed offerings: Azure AI Search for vector/semantic retrieval, Azure OpenAI for LLM and embeddings, Azure Cosmos DB for operational data, and Azure Blob Storage for document storage. APIs are contract-first via OpenAPI, and all capabilities are invocable via CLI to satisfy CLI-first principles. Advanced analytics will be supported using Azure Data services integration (e.g., Azure Synapse/Analytics). This application explicitly showcases Microsoft Azure and modern platform engineering: Azure AI Search, Azure OpenAI models, Azure Cosmos DB, Azure Blob Storage, advanced Analytics/Data integrations, AI and Generative AI solutions, and Kubernetes with AKS.
 
 ## Technical Context
 **Language/Version**: TypeScript (Node.js 20) + TypeScript (React 18)  
@@ -46,6 +46,7 @@ Deliver an AI-powered platform for multi-format document ingestion, semantic sea
 - CLI-first invocation for all core flows
 - Deterministic text I/O (JSON/human)
  - Use Azure services: AI Search, OpenAI, Cosmos DB, Blob Storage; deploy on AKS
+ - Showcase Kubernetes/AKS deployment using Helm charts and GitHub Actions CI/CD
 **Scale/Scope**: Initial target: 1M documents, 100 concurrent users; horizontal scale via workers
 
 ## Constitution Check
