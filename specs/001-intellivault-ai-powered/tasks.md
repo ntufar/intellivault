@@ -140,21 +140,21 @@ Frontend scaffolding (minimal; depends on endpoints):
 
 ## Phase 3.4: Integration
 Platform integrations (depend on services/endpoints):
-- [ ] T038 Configure Azure Cosmos DB client and repositories (partition by `tenant_id`)
+- [X] T038 Configure Azure Cosmos DB client and repositories (partition by `tenant_id`)
   - Path: `backend/src/lib/cosmos.ts`
-- [ ] T039 Configure Azure Blob Storage client and upload helper
+- [X] T039 Configure Azure Blob Storage client and upload helper
   - Path: `backend/src/lib/blob.ts`
-- [ ] T040 Configure Azure AI Search client and index helpers
+- [X] T040 Configure Azure AI Search client and index helpers
   - Path: `backend/src/lib/ai-search.ts`
-- [ ] T041 Configure Azure OpenAI client
+- [X] T041 Configure Azure OpenAI client
   - Path: `backend/src/lib/openai.ts`
-- [ ] T042 Setup BullMQ queues and workers for ingestion pipeline
+- [X] T042 Setup BullMQ queues and workers for ingestion pipeline
   - Path: `backend/src/workers/ingestion.worker.ts`
-- [ ] T043 Implement Express middleware: auth, request logging, error handler, CORS, security headers
+- [X] T043 Implement Express middleware: auth, request logging, error handler, CORS, security headers
   - Path: `backend/src/api/middleware/`
-- [ ] T044 Add structured logging (pino) and request IDs throughout
+- [X] T044 Add structured logging (pino) and request IDs throughout
   - Path: `backend/src/lib/logger.ts`
-- [ ] T045 Add audit events for sensitive actions (upload, search, qa)
+- [X] T045 Add audit events for sensitive actions (upload, search, qa)
   - Path: `backend/src/services/AuditService.ts`
 
 ## Phase 3.5: Deployment (Kubernetes + AKS)
