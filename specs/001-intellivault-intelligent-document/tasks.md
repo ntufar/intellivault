@@ -24,7 +24,7 @@
   - Test document content retrieval
   - Verify error handling
 
-- [T005] Search Service API tests [P]
+- [X] [T005] Search Service API tests [P]
   - Test semantic search endpoint
   - Test similar documents endpoint
   - Test search filters and facets
