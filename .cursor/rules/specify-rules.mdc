@@ -1,0 +1,25 @@
+# intellivault Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-09-22
+
+## Active Technologies
+- TypeScript (Node.js 20) + TypeScript (React 18) + Express, zod, OpenAPI tooling, Azure SDKs (AI Search, OpenAI, Cosmos DB, Blob Storage), BullMQ, JWT/Passport (auth integration TBD), Vitest/Jest, Playwrigh (001-intellivault-ai-powered)
+
+## Project Structure
+```
+backend/
+frontend/
+tests/
+```
+
+## Commands
+npm test [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES][ONLY COMMANDS FOR ACTIVE TECHNOLOGIES] npm run lint
+
+## Code Style
+TypeScript (Node.js 20) + TypeScript (React 18): Follow standard conventions
+
+## Recent Changes
+- 001-intellivault-ai-powered: Added TypeScript (Node.js 20) + TypeScript (React 18) + Express, zod, OpenAPI tooling, Azure SDKs (AI Search, OpenAI, Cosmos DB, Blob Storage), BullMQ, JWT/Passport (auth integration TBD), Vitest/Jest, Playwrigh
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
