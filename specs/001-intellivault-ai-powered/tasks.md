@@ -43,18 +43,18 @@
   - Infra-as-Code (optional): `infra/azure/`
 
 ## Phase 3.1: Setup
-- [ ] T001 Create project structure per implementation plan (backend/, frontend/)
+- [X] T001 Create project structure per implementation plan (backend/, frontend/)
   - Paths: `backend/`, `frontend/`
-- [ ] T002 Initialize backend TypeScript Node project with dependencies
+- [X] T002 Initialize backend TypeScript Node project with dependencies
   - Path: `backend/`
   - Add: Express, zod, Vitest, ts-node, tsx, supertest, swagger-parser, openapi-types, Azure SDKs (ai-search-documents, openai, cosmos, storage-blob), bullmq, ioredis, pino, pino-pretty, dotenv, jsonschema-to-zod (as needed)
-- [ ] T003 Initialize frontend React 18 + TypeScript (Vite) with Playwright tests
+- [X] T003 Initialize frontend React 18 + TypeScript (Vite) with Playwright tests
   - Path: `frontend/`
-- [ ] T004 [P] Configure linting/formatting for backend (ESLint + Prettier + TypeScript config)
+- [X] T004 [P] Configure linting/formatting for backend (ESLint + Prettier + TypeScript config)
   - Paths: `backend/.eslintrc.cjs`, `backend/.prettierrc`, `backend/tsconfig.json`
-- [ ] T005 [P] Configure linting/formatting for frontend (ESLint + Prettier + TypeScript config)
+- [X] T005 [P] Configure linting/formatting for frontend (ESLint + Prettier + TypeScript config)
   - Paths: `frontend/.eslintrc.cjs`, `frontend/.prettierrc`, `frontend/tsconfig.json`
-- [ ] T006 Configure workspace scripts and Docker dev setup
+- [X] T006 Configure workspace scripts and Docker dev setup
   - Paths: `package.json`, `docker-compose.yml`, `.env.example`
 
 ## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
