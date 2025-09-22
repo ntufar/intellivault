@@ -46,6 +46,18 @@ IntelliVault is a sophisticated document management system leveraging Azure's AI
 - **Orchestration**: Azure Kubernetes Service (AKS)
 - **Monitoring**: Azure Monitor, Application Insights
 
+### Detailed Architecture Documentation
+Comprehensive architecture documentation is available in the `/docs/architecture` directory:
+
+- **[Architecture Overview](docs/architecture/overview.md)**: High-level system architecture, components, and design principles
+- **Service Architecture**:
+  - [Document Service](docs/architecture/services/document-service.md): Document processing and storage
+  - [Search Service](docs/architecture/services/search-service.md): Semantic search capabilities
+  - [Analytics Service](docs/architecture/services/analytics-service.md): Analytics and reporting
+- **[Infrastructure](docs/architecture/infrastructure.md)**: Azure resources, Kubernetes setup, and networking
+- **[Data Architecture](docs/architecture/data-architecture.md)**: Data models, storage patterns, and data flows
+- **[Security Architecture](docs/architecture/security.md)**: Security measures, authentication, and compliance
+
 ## Prerequisites
 - Azure Subscription with required services enabled
 - Node.js 18 or later

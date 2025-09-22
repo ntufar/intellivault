@@ -12,13 +12,13 @@
   - Configure environment variables
   - Initialize local Azure Storage emulator
 
-- [T003] Set up CI/CD pipeline
+- [X] [T003] Set up CI/CD pipeline
   - Configure GitHub Actions
   - Set up deployment scripts
   - Configure Azure DevOps pipeline
 
 ## Test Tasks [P]
-- [T004] Document Service API tests [P]
+- [X] [T004] Document Service API tests [P]
   - Test document upload endpoint
   - Test document status retrieval
   - Test document content retrieval

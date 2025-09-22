@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: document-service
+  namespace: intellivault
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: document-service
+  template:
+    metadata:
+      labels:
+        app: document-service
+    spec:
+      containers:
+      - name: document-service
+        image: intellivaultacr.azurecr.io/document-service:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: COSMOS_DB_CONNECTION
+          valueFrom:
+            secretKeyRef:
+              name: intellivault-secrets
+              key: cosmos-connection
+        resources:
+          limits:
+            cpu: "1"
+            memory: "2Gi"
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: document-service
+  namespace: intellivault
+spec:
+  selector:
+    app: document-service
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: ClusterIP
