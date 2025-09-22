@@ -18,7 +18,7 @@
   - Configure Azure DevOps pipeline
 
 ## Test Tasks [P]
-- [T004] Document Service API tests [P]
+- [X] [T004] Document Service API tests [P]
   - Test document upload endpoint
   - Test document status retrieval
   - Test document content retrieval
