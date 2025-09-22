@@ -31,9 +31,15 @@ describe('OpenAPI v1 Contract', () => {
   });
 
   it('has corresponding zod schemas implemented (request/response)', async () => {
-    // Until T036, importing schemas should fail.
     const modPath = path.resolve(process.cwd(), 'src/api/validation/schemas.ts');
-    await expect(import(modPath)).rejects.toBeDefined();
+    const schemas = await import(modPath);
+    expect(schemas).toHaveProperty('ListDocumentsResponseSchema');
+    expect(schemas).toHaveProperty('UploadDocumentRequestSchema');
+    expect(schemas).toHaveProperty('UploadDocumentResponseSchema');
+    expect(schemas).toHaveProperty('SearchRequestQuerySchema');
+    expect(schemas).toHaveProperty('SearchResponseSchema');
+    expect(schemas).toHaveProperty('QARequestBodySchema');
+    expect(schemas).toHaveProperty('QAResponseSchema');
   });
 });
 

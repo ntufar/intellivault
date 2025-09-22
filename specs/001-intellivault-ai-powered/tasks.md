@@ -131,7 +131,7 @@ API endpoints (Express; depend on services):
   - Path: `backend/src/api/routes/search.get.ts`
 - [X] T035 Implement POST `/v1/qa` (Q&A with citations)
   - Path: `backend/src/api/routes/qa.post.ts`
-- [ ] T036 Add zod request/response validation aligned with OpenAPI
+- [X] T036 Add zod request/response validation aligned with OpenAPI
   - Path: `backend/src/api/validation/schemas.ts`
 
 Frontend scaffolding (minimal; depends on endpoints):
