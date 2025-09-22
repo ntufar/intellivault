@@ -61,22 +61,22 @@
 CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation
 
 From contracts (`specs/001-intellivault-ai-powered/contracts/openapi.yaml`):
-- [ ] T007 [P] Contract test for `openapi.yaml` (validate schema + endpoint shapes)
+- [X] T007 [P] Contract test for `openapi.yaml` (validate schema + endpoint shapes)
   - Path: `backend/tests/contract/openapi.v1.contract.test.ts`
   - Assert: paths `/v1/documents` (GET, POST), `/v1/search` (GET), `/v1/qa` (POST) request/response schemas
 
 From quickstart scenarios (`quickstart.md`):
-- [ ] T008 [P] Integration test: CLI `iv up` starts services and outputs JSON status
+- [X] T008 [P] Integration test: CLI `iv up` starts services and outputs JSON status
   - Path: `backend/tests/integration/cli.up.test.ts`
-- [ ] T009 [P] Integration test: CLI `iv upload --path ./samples --tenant t1`
+- [X] T009 [P] Integration test: CLI `iv upload --path ./samples --tenant t1`
   - Path: `backend/tests/integration/cli.upload.test.ts`
-- [ ] T010 [P] Integration test: CLI `iv search --q "..." --k 10 --tenant t1`
+- [X] T010 [P] Integration test: CLI `iv search --q "..." --k 10 --tenant t1`
   - Path: `backend/tests/integration/cli.search.test.ts`
-- [ ] T011 [P] Integration test: CLI `iv summarize --doc-id <id>`
+- [X] T011 [P] Integration test: CLI `iv summarize --doc-id <id>`
   - Path: `backend/tests/integration/cli.summarize.test.ts`
-- [ ] T012 [P] Integration test: CLI `iv ask --q "..." --with-sources`
+- [X] T012 [P] Integration test: CLI `iv ask --q "..." --with-sources`
   - Path: `backend/tests/integration/cli.ask.test.ts`
-- [ ] T013 [P] Integration test: CLI `iv graph --entity "Acme Corp"`
+- [X] T013 [P] Integration test: CLI `iv graph --entity "Acme Corp"`
   - Path: `backend/tests/integration/cli.graph.test.ts`
 
 ## Phase 3.3: Core Implementation (ONLY after tests are failing)
