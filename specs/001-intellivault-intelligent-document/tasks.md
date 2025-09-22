@@ -12,7 +12,7 @@
   - Configure environment variables
   - Initialize local Azure Storage emulator
 
-- [T003] Set up CI/CD pipeline
+- [X] [T003] Set up CI/CD pipeline
   - Configure GitHub Actions
   - Set up deployment scripts
   - Configure Azure DevOps pipeline
