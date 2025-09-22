@@ -3,7 +3,6 @@
 ## Prerequisites
 - Azure Subscription with required services enabled
 - Node.js 18+ and npm
-- Docker Desktop
 - Azure CLI
 - Kubernetes CLI (kubectl)
 
@@ -47,11 +46,6 @@ npm run dev
 2. Run tests:
 ```bash
 npm test
-```
-
-3. Build containers:
-```bash
-npm run docker:build
 ```
 
 ## Deployment
