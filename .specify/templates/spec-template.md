@@ -78,6 +78,18 @@ When creating this spec from a user prompt:
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+### Security Requirements
+- **SR-001**: System MUST encrypt sensitive data at rest
+- **SR-002**: System MUST use secure protocols for data transmission
+- **SR-003**: System MUST implement access control for all operations
+- **SR-004**: System MUST maintain audit logs of sensitive operations
+
+### Observability Requirements
+- **OR-001**: System MUST implement structured logging for all operations
+- **OR-002**: System MUST expose relevant metrics for monitoring
+- **OR-003**: System MUST provide detailed error context for debugging
+- **OR-004**: System MUST track performance metrics
+
 ### Key Entities *(include if feature involves data)*
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]

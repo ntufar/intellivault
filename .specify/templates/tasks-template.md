@@ -69,12 +69,26 @@
 - [ ] T017 Request/response logging
 - [ ] T018 CORS and security headers
 
-## Phase 3.5: Polish
-- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
-- [ ] T020 Performance tests (<200ms)
-- [ ] T021 [P] Update docs/api.md
-- [ ] T022 Remove duplication
-- [ ] T023 Run manual-testing.md
+## Phase 3.5: Security & Observability
+- [ ] T019 [P] Implement encryption for sensitive data
+- [ ] T020 [P] Set up access control system
+- [ ] T021 [P] Configure audit logging
+- [ ] T022 [P] Set up metrics collection
+- [ ] T023 [P] Implement structured logging
+- [ ] T024 [P] Configure error tracking
+
+## Phase 3.6: Documentation
+- [ ] T025 [P] Write API documentation
+- [ ] T026 [P] Create configuration guide
+- [ ] T027 [P] Document security features
+- [ ] T028 [P] Create observability guide
+
+## Phase 3.7: Polish
+- [ ] T029 [P] Unit tests for validation in tests/unit/test_validation.py
+- [ ] T030 Performance tests (<200ms)
+- [ ] T031 Security vulnerability scanning
+- [ ] T032 Remove duplication
+- [ ] T033 Run manual-testing.md
 
 ## Dependencies
 - Tests (T004-T007) before implementation (T008-T014)

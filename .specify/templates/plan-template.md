@@ -47,7 +47,35 @@
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### I. Security First
+- [ ] Security requirements documented and reviewed
+- [ ] Encryption needs identified
+- [ ] Access control model defined
+- [ ] Audit logging requirements specified
+
+### II. Modular Architecture
+- [ ] Component boundaries defined
+- [ ] Dependencies documented
+- [ ] Interfaces specified
+- [ ] Module responsibilities clear
+
+### III. Test-Driven Development
+- [ ] Test scenarios identified
+- [ ] Test coverage requirements defined
+- [ ] Security test cases outlined
+- [ ] Integration test scope determined
+
+### IV. Documentation Driven
+- [ ] API documentation planned
+- [ ] Configuration documentation outlined
+- [ ] User interface documentation requirements set
+- [ ] Integration documentation needs identified
+
+### V. Observability
+- [ ] Logging requirements defined
+- [ ] Metrics to be collected identified
+- [ ] Error handling strategy documented
+- [ ] Performance monitoring approach specified
 
 ## Project Structure
 
