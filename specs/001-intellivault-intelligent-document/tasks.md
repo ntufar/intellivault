@@ -30,7 +30,7 @@
   - Test search filters and facets
   - Verify response formats
 
-- [T006] Analytics Service API tests [P]
+- [X] [T006] Analytics Service API tests [P]
   - Test document analytics endpoint
   - Test search analytics endpoint
   - Test system metrics endpoint
