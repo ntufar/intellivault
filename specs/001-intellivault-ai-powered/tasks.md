@@ -81,29 +81,29 @@ From quickstart scenarios (`quickstart.md`):
 
 ## Phase 3.3: Core Implementation (ONLY after tests are failing)
 Models from `data-model.md` (each model task is independent → [P]):
-- [ ] T014 [P] Create `Document` model
+- [X] T014 [P] Create `Document` model
   - Path: `backend/src/models/Document.ts`
-- [ ] T015 [P] Create `DocumentChunk` model
+- [X] T015 [P] Create `DocumentChunk` model
   - Path: `backend/src/models/DocumentChunk.ts`
-- [ ] T016 [P] Create `Entity` model
+- [X] T016 [P] Create `Entity` model
   - Path: `backend/src/models/Entity.ts`
-- [ ] T017 [P] Create `DocumentEntity` join model
+- [X] T017 [P] Create `DocumentEntity` join model
   - Path: `backend/src/models/DocumentEntity.ts`
-- [ ] T018 [P] Create `KnowledgeGraphNode` model
+- [X] T018 [P] Create `KnowledgeGraphNode` model
   - Path: `backend/src/models/KnowledgeGraphNode.ts`
-- [ ] T019 [P] Create `KnowledgeGraphEdge` model
+- [X] T019 [P] Create `KnowledgeGraphEdge` model
   - Path: `backend/src/models/KnowledgeGraphEdge.ts`
-- [ ] T020 [P] Create `User` model with role enum
+- [X] T020 [P] Create `User` model with role enum
   - Path: `backend/src/models/User.ts`
-- [ ] T021 [P] Create `SearchQuery` model
+- [X] T021 [P] Create `SearchQuery` model
   - Path: `backend/src/models/SearchQuery.ts`
-- [ ] T022 [P] Create `AuditLog` model
+- [X] T022 [P] Create `AuditLog` model
   - Path: `backend/src/models/AuditLog.ts`
 
 Core services (depend on models):
-- [ ] T023 Implement `DocumentService` (upload orchestration, checksum, status transitions)
+- [X] T023 Implement `DocumentService` (upload orchestration, checksum, status transitions)
   - Path: `backend/src/services/DocumentService.ts`
-- [ ] T024 Implement `ChunkingService` + `EmbeddingService` (batching, caching)
+- [X] T024 Implement `ChunkingService` + `EmbeddingService` (batching, caching)
   - Path: `backend/src/services/EmbeddingService.ts`
 - [ ] T025 Implement `SearchService` (Azure AI Search client + queries)
   - Path: `backend/src/services/SearchService.ts`
@@ -119,23 +119,23 @@ Core services (depend on models):
   - Path: `backend/src/services/AuthService.ts`
 
 CLI-first commands (depend on services):
-- [ ] T031 Implement CLI entrypoint `iv` and subcommands: `up`, `upload`, `search`, `summarize`, `ask`, `graph`
+- [X] T031 Implement CLI entrypoint `iv` and subcommands: `up`, `upload`, `search`, `summarize`, `ask`, `graph`
   - Path: `backend/src/cli/index.ts`
 
 API endpoints (Express; depend on services):
-- [ ] T032 Implement GET `/v1/documents` (list documents)
+- [X] T032 Implement GET `/v1/documents` (list documents)
   - Path: `backend/src/api/routes/documents.get.ts`
-- [ ] T033 Implement POST `/v1/documents` (upload; returns `ProcessingJob`)
+- [X] T033 Implement POST `/v1/documents` (upload; returns `ProcessingJob`)
   - Path: `backend/src/api/routes/documents.post.ts`
-- [ ] T034 Implement GET `/v1/search` (semantic search)
+- [X] T034 Implement GET `/v1/search` (semantic search)
   - Path: `backend/src/api/routes/search.get.ts`
-- [ ] T035 Implement POST `/v1/qa` (Q&A with citations)
+- [X] T035 Implement POST `/v1/qa` (Q&A with citations)
   - Path: `backend/src/api/routes/qa.post.ts`
 - [ ] T036 Add zod request/response validation aligned with OpenAPI
   - Path: `backend/src/api/validation/schemas.ts`
 
 Frontend scaffolding (minimal; depends on endpoints):
-- [ ] T037 Create basic React app shell with auth and API client
+- [X] T037 Create basic React app shell with auth and API client
   - Path: `frontend/src/`
 
 ## Phase 3.4: Integration
