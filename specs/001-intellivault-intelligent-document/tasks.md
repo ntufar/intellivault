@@ -36,7 +36,7 @@
   - Test system metrics endpoint
   - Verify data aggregation
 
-- [T007] Integration test scenarios [P]
+- [X] [T007] Integration test scenarios [P]
   - Test end-to-end document processing flow
   - Test search and analytics integration
   - Test user permission flows
