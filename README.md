@@ -126,9 +126,22 @@ The CLI provides access to all core functionality:
 ./iv graph --entity "Acme Corp" --format json
 ```
 
-## 📚 API Documentation
+## 📚 Documentation
 
-### REST Endpoints
+### Architecture Documentation
+Comprehensive architectural documentation is available in the `/docs/` directory:
+
+- **[Architecture Overview](docs/ARCHITECTURE-OVERVIEW.md)** - High-level system architecture and design principles
+- **[System Design](docs/SYSTEM-DESIGN.md)** - Detailed component architecture and service design
+- **[API Architecture](docs/API-ARCHITECTURE.md)** - RESTful API design and implementation guide
+- **[Data Flow Architecture](docs/DATA-FLOW-ARCHITECTURE.md)** - Document processing and data flow pipelines
+- **[Deployment Architecture](docs/DEPLOYMENT-ARCHITECTURE.md)** - Infrastructure and deployment strategies
+- **[Security Architecture](docs/SECURITY-ARCHITECTURE.md)** - Comprehensive security framework
+- **[Monitoring Architecture](docs/MONITORING-ARCHITECTURE.md)** - Observability and monitoring strategies
+
+### API Documentation
+
+#### REST Endpoints
 
 #### Documents
 - `GET /v1/documents?tenantId={id}` - List documents
@@ -311,7 +324,8 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: Check `/docs/` directory
+- **Architecture Documentation**: Comprehensive guides in `/docs/` directory
+- **API Documentation**: OpenAPI specification and endpoint guides
 - **Issues**: GitHub Issues for bug reports
 - **Discussions**: GitHub Discussions for questions
 
