@@ -1,0 +1,22 @@
+apiVersion: v2
+name: intellivault
+description: IntelliVault AI-Powered Document Intelligence Platform
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - document-intelligence
+  - ai
+  - search
+  - azure
+home: https://github.com/your-org/intellivault
+sources:
+  - https://github.com/your-org/intellivault
+maintainers:
+  - name: IntelliVault Team
+    email: team@intellivault.example.com
+dependencies:
+  - name: redis
+    version: "17.3.7"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: redis.enabled

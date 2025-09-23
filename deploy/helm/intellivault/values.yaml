@@ -1,0 +1,166 @@
+# Default values for intellivault
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Global configuration
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
+
+# Image configuration
+image:
+  registry: intellivault
+  repository: backend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  registry: intellivault
+  repository: frontend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+frontendService:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+  hosts:
+    - host: api.intellivault.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: app.intellivault.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: intellivault-tls
+      hosts:
+        - api.intellivault.example.com
+        - app.intellivault.example.com
+
+# Backend deployment configuration
+backend:
+  replicaCount: 3
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1Gi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env:
+    NODE_ENV: "production"
+    PORT: "3000"
+
+# Frontend deployment configuration
+frontend:
+  replicaCount: 2
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env:
+    REACT_APP_API_URL: "https://api.intellivault.example.com"
+
+# Redis configuration
+redis:
+  enabled: true
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: true
+      size: 8Gi
+    resources:
+      limits:
+        cpu: 200m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+# Azure configuration
+azure:
+  cosmos:
+    endpoint: "https://intellivault-cosmos.documents.azure.com:443/"
+    database: "intellivault"
+    container: "documents"
+  storage:
+    accountName: "intellivaultstorage"
+    container: "documents"
+  search:
+    endpoint: "https://intellivault-search.search.windows.net"
+    index: "documents"
+  openai:
+    endpoint: "https://intellivault-openai.openai.azure.com/"
+    embeddingModel: "text-embedding-3-large"
+    chatModel: "gpt-4o"
+
+# Application configuration
+app:
+  defaultTenantId: "default-tenant"
+  logLevel: "info"
+  maxFileSize: "104857600"  # 100MB
+  supportedMimeTypes: "application/pdf,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  apiVersion: "v1"
+  corsOrigins: "https://app.intellivault.example.com"
+  defaultSearchLimit: 10
+  maxSearchLimit: 100
+  chunkSize: 2000
+  chunkOverlap: 200
+  maxConcurrentJobs: 10
+
+# Secrets configuration
+secrets:
+  create: true
+  # These should be provided via external secret management in production
+  cosmosKey: ""
+  storageAccountKey: ""
+  searchApiKey: ""
+  openaiApiKey: ""
+  jwtSecret: ""
+
+# Monitoring configuration
+monitoring:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+    interval: 30s
+    scrapeTimeout: 10s
+
+# Autoscaling configuration
+autoscaling:
+  enabled: false
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80

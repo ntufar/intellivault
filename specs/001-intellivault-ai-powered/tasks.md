@@ -158,17 +158,17 @@ Platform integrations (depend on services/endpoints):
   - Path: `backend/src/services/AuditService.ts`
 
 ## Phase 3.5: Deployment (Kubernetes + AKS)
-- [ ] T046 Create Kubernetes manifests for backend API and frontend
+- [X] T046 Create Kubernetes manifests for backend API and frontend
   - Paths: `deploy/k8s/backend-deployment.yaml`, `deploy/k8s/backend-service.yaml`, `deploy/k8s/frontend-deployment.yaml`, `deploy/k8s/frontend-service.yaml`, `deploy/k8s/ingress.yaml`
-- [ ] T047 Create ConfigMaps/Secrets templates for Azure credentials and config
+- [X] T047 Create ConfigMaps/Secrets templates for Azure credentials and config
   - Paths: `deploy/k8s/configmap.yaml`, `deploy/k8s/secrets.example.yaml`
-- [ ] T048 Create Helm chart for IntelliVault (values for dev/prod)
+- [X] T048 Create Helm chart for IntelliVault (values for dev/prod)
   - Path: `deploy/helm/intellivault/`
 - [ ] T049 Provision AKS and Azure dependencies via IaC (Bicep/Terraform) (optional)
   - Path: `infra/azure/`
-- [ ] T050 Setup GitHub Actions workflow: build, push images, deploy to AKS
+- [X] T050 Setup GitHub Actions workflow: build, push images, deploy to AKS
   - Path: `.github/workflows/deploy-aks.yml`
-- [ ] T051 Document AKS deployment steps and rollback procedures
+- [X] T051 Document AKS deployment steps and rollback procedures
   - Path: `docs/AKS-DEPLOYMENT.md`
 
 ## Phase 3.6: Polish

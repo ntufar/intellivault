@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: intellivault-config
+  labels:
+    app: intellivault
+data:
+  # Azure Cosmos DB Configuration
+  cosmos-endpoint: "https://intellivault-cosmos.documents.azure.com:443/"
+  cosmos-database: "intellivault"
+  cosmos-container: "documents"
+  
+  # Azure Blob Storage Configuration
+  storage-account-name: "intellivaultstorage"
+  storage-container: "documents"
+  
+  # Azure AI Search Configuration
+  search-endpoint: "https://intellivault-search.search.windows.net"
+  search-index: "documents"
+  
+  # Azure OpenAI Configuration
+  openai-endpoint: "https://intellivault-openai.openai.azure.com/"
+  openai-embedding-model: "text-embedding-3-large"
+  openai-chat-model: "gpt-4o"
+  
+  # Redis Configuration
+  redis-url: "redis://intellivault-redis:6379"
+  
+  # Application Configuration
+  default-tenant-id: "default-tenant"
+  log-level: "info"
+  max-file-size: "104857600"  # 100MB
+  supported-mime-types: "application/pdf,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  
+  # API Configuration
+  api-version: "v1"
+  cors-origins: "https://app.intellivault.example.com"
+  
+  # Search Configuration
+  default-search-limit: "10"
+  max-search-limit: "100"
+  
+  # Processing Configuration
+  chunk-size: "2000"
+  chunk-overlap: "200"
+  max-concurrent-jobs: "10"

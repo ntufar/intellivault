@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "intellivault.fullname" . }}-config
+  labels:
+    {{- include "intellivault.labels" . | nindent 4 }}
+data:
+  # Azure Cosmos DB Configuration
+  cosmos-endpoint: {{ .Values.azure.cosmos.endpoint | quote }}
+  cosmos-database: {{ .Values.azure.cosmos.database | quote }}
+  cosmos-container: {{ .Values.azure.cosmos.container | quote }}
+  
+  # Azure Blob Storage Configuration
+  storage-account-name: {{ .Values.azure.storage.accountName | quote }}
+  storage-container: {{ .Values.azure.storage.container | quote }}
+  
+  # Azure AI Search Configuration
+  search-endpoint: {{ .Values.azure.search.endpoint | quote }}
+  search-index: {{ .Values.azure.search.index | quote }}
+  
+  # Azure OpenAI Configuration
+  openai-endpoint: {{ .Values.azure.openai.endpoint | quote }}
+  openai-embedding-model: {{ .Values.azure.openai.embeddingModel | quote }}
+  openai-chat-model: {{ .Values.azure.openai.chatModel | quote }}
+  
+  # Redis Configuration
+  redis-url: {{ if .Values.redis.enabled }}redis://{{ include "intellivault.fullname" . }}-redis:6379{{ else }}{{ .Values.app.redisUrl | quote }}{{ end }}
+  
+  # Application Configuration
+  default-tenant-id: {{ .Values.app.defaultTenantId | quote }}
+  log-level: {{ .Values.app.logLevel | quote }}
+  max-file-size: {{ .Values.app.maxFileSize | quote }}
+  supported-mime-types: {{ .Values.app.supportedMimeTypes | quote }}
+  
+  # API Configuration
+  api-version: {{ .Values.app.apiVersion | quote }}
+  cors-origins: {{ .Values.app.corsOrigins | quote }}
+  
+  # Search Configuration
+  default-search-limit: {{ .Values.app.defaultSearchLimit | quote }}
+  max-search-limit: {{ .Values.app.maxSearchLimit | quote }}
+  
+  # Processing Configuration
+  chunk-size: {{ .Values.app.chunkSize | quote }}
+  chunk-overlap: {{ .Values.app.chunkOverlap | quote }}
+  max-concurrent-jobs: {{ .Values.app.maxConcurrentJobs | quote }}

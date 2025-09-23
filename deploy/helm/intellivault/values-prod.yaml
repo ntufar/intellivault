@@ -1,0 +1,133 @@
+# Production environment values for IntelliVault
+# This file overrides values.yaml for production deployments
+
+# Image configuration for prod
+image:
+  tag: latest
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Production replica counts
+backend:
+  replicaCount: 5
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+
+frontend:
+  replicaCount: 3
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+
+# Redis configuration for prod
+redis:
+  enabled: true
+  auth:
+    enabled: true
+    password: ""  # Should be provided via external secret management
+  master:
+    persistence:
+      enabled: true
+      size: 50Gi
+    resources:
+      limits:
+        cpu: 500m
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+
+# Azure configuration for prod
+azure:
+  cosmos:
+    endpoint: "https://intellivault-prod-cosmos.documents.azure.com:443/"
+    database: "intellivault"
+    container: "documents"
+  storage:
+    accountName: "intellivaultprodstorage"
+    container: "documents"
+  search:
+    endpoint: "https://intellivault-prod-search.search.windows.net"
+    index: "documents"
+  openai:
+    endpoint: "https://intellivault-prod-openai.openai.azure.com/"
+    embeddingModel: "text-embedding-3-large"
+    chatModel: "gpt-4o"
+
+# Application configuration for prod
+app:
+  defaultTenantId: "default-tenant"
+  logLevel: "info"
+  maxFileSize: "104857600"  # 100MB
+  supportedMimeTypes: "application/pdf,text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  corsOrigins: "https://app.intellivault.example.com"
+  defaultSearchLimit: 10
+  maxSearchLimit: 100
+  chunkSize: 2000
+  chunkOverlap: 200
+  maxConcurrentJobs: 20
+
+# Ingress configuration for prod
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "1000"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+  hosts:
+    - host: api.intellivault.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: app.intellivault.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: intellivault-tls
+      hosts:
+        - api.intellivault.example.com
+        - app.intellivault.example.com
+
+# Secrets configuration for prod
+secrets:
+  create: false  # Should be managed externally in production
+  # These should be provided via Azure Key Vault or external secret management
+  cosmosKey: ""
+  storageAccountKey: ""
+  searchApiKey: ""
+  openaiApiKey: ""
+  jwtSecret: ""
+
+# Monitoring configuration for prod
+monitoring:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    interval: 30s
+    scrapeTimeout: 10s
+
+# Autoscaling configuration for prod
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 20
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80

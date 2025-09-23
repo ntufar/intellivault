@@ -1,0 +1,106 @@
+# Development environment values for IntelliVault
+# This file overrides values.yaml for development deployments
+
+# Image configuration for dev
+image:
+  tag: dev
+  pullPolicy: Always
+
+frontendImage:
+  tag: dev
+  pullPolicy: Always
+
+# Reduced replica counts for dev
+backend:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+frontend:
+  replicaCount: 1
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+
+# Redis configuration for dev
+redis:
+  enabled: true
+  auth:
+    enabled: false
+  master:
+    persistence:
+      enabled: false
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+
+# Azure configuration for dev (using local/emulator endpoints)
+azure:
+  cosmos:
+    endpoint: "https://localhost:8081/"
+    database: "intellivault-dev"
+    container: "documents"
+  storage:
+    accountName: "devstoreaccount1"
+    container: "documents"
+  search:
+    endpoint: "https://localhost:8080"
+    index: "documents-dev"
+  openai:
+    endpoint: "https://localhost:8080"
+    embeddingModel: "text-embedding-3-small"
+    chatModel: "gpt-3.5-turbo"
+
+# Application configuration for dev
+app:
+  defaultTenantId: "dev-tenant"
+  logLevel: "debug"
+  maxFileSize: "10485760"  # 10MB for dev
+  supportedMimeTypes: "application/pdf,text/plain"
+  corsOrigins: "http://localhost:3000,http://localhost:5173"
+  defaultSearchLimit: 5
+  maxSearchLimit: 20
+  chunkSize: 1000
+  chunkOverlap: 100
+  maxConcurrentJobs: 2
+
+# Ingress configuration for dev
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  hosts:
+    - host: api.intellivault.local
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: app.intellivault.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+# Secrets configuration for dev
+secrets:
+  create: true
+  # These should be provided via external secret management in production
+  cosmosKey: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+  storageAccountKey: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+  searchApiKey: "dev-search-key"
+  openaiApiKey: "dev-openai-key"
+  jwtSecret: "dev-jwt-secret-key-change-in-production"
