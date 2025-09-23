@@ -183,22 +183,53 @@ npm run test:frontend
    docker build -t intellivault-frontend ./frontend
    ```
 
-2. **Deploy to AKS**
+2. **Deploy to AKS (Helm - Recommended)**
    ```bash
-   # Apply Kubernetes manifests
+   # Development
+   helm upgrade --install intellivault-dev ./deploy/helm/intellivault/ \
+     --namespace intellivault-dev \
+     --create-namespace \
+     --values ./deploy/helm/intellivault/values-dev.yaml \
+     --set secrets.cosmosKey="<cosmos-key>" \
+     --set secrets.storageAccountKey="<storage-key>" \
+     --set secrets.searchApiKey="<search-key>" \
+     --set secrets.openaiApiKey="<openai-key>" \
+     --set secrets.jwtSecret="<jwt-secret>"
+
+   # Production (secrets managed externally, see docs)
+   helm upgrade --install intellivault-prod ./deploy/helm/intellivault/ \
+     --namespace intellivault-prod \
+     --create-namespace \
+     --values ./deploy/helm/intellivault/values-prod.yaml
+   ```
+
+   Or apply raw Kubernetes manifests:
+   ```bash
    kubectl apply -f deploy/k8s/
-   
-   # Or use Helm
-   helm install intellivault ./deploy/helm/intellivault/
    ```
 
 3. **Configure Secrets**
-   ```bash
-   kubectl apply -f deploy/k8s/secrets.yaml
-   ```
+   - Using Helm (dev): pass secrets via `--set` as shown above
+   - Using kubectl (manifests):
+     ```bash
+     # Example: create required secrets
+     kubectl create secret generic intellivault-secrets \
+       --from-literal=cosmos-key="<cosmos-key>" \
+       --from-literal=storage-account-key="<storage-key>" \
+       --from-literal=search-api-key="<search-key>" \
+       --from-literal=openai-api-key="<openai-key>" \
+       --from-literal=jwt-secret="<jwt-secret>"
+     # See deploy/k8s/secrets.example.yaml for reference
+     ```
+
+4. **AKS Guide**
+   - See `docs/AKS-DEPLOYMENT.md` for full AKS setup, add-ons, troubleshooting, and rollback.
 
 ### CI/CD Pipeline
-GitHub Actions workflow automatically builds, tests, and deploys to AKS on push to main branch.
+GitHub Actions at `.github/workflows/deploy-aks.yml` builds, tests, pushes images, and deploys:
+- Push to `develop` → deploys to `dev` (AKS)
+- Push to `main` → deploys to `prod` (AKS)
+- Manual trigger supports `dev`/`prod` via workflow inputs
 
 ## 🔧 Development
 
