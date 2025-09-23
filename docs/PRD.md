@@ -245,6 +245,38 @@ IntelliVault is an enterprise-grade AI-powered platform that automatically inges
 - **Security Testing**: Penetration testing and vulnerability scans
 - **User Acceptance Testing**: Beta program with target customers
 
+### 9.4 API Usage & CLI Quickstart
+
+Refer to `specs/001-intellivault-ai-powered/contracts/openapi.yaml` for the full API contract. Key endpoints (v1):
+
+- GET `/v1/documents?tenantId={id}`: List documents
+- POST `/v1/documents?tenantId={id}`: Upload a document (multipart/form-data)
+- GET `/v1/search?tenantId={id}&q={query}&k={k}`: Semantic search
+- POST `/v1/qa`: Q&A with citations
+
+Example requests:
+
+```bash
+curl -s "http://localhost:3000/v1/search?tenantId=t1&q=contracts%20with%20termination%20clauses&k=5" | jq .
+```
+
+```bash
+curl -s -X POST http://localhost:3000/v1/qa \
+  -H 'Content-Type: application/json' \
+  -d '{"tenantId":"t1","question":"What are the payment terms?","k":10}' | jq .
+```
+
+CLI-first flows (see `specs/001-intellivault-ai-powered/quickstart.md` for full sequence):
+
+```bash
+./iv cli up
+./iv cli upload --path ./samples --tenant t1 --format json
+./iv cli search --q "contracts with termination clauses" --k 10 --tenant t1 --format json
+./iv cli summarize --doc-id <id> --format json
+./iv cli ask --q "What are the payment terms?" --tenant t1 --with-sources --format json
+./iv cli graph --entity "Acme Corp" --format json
+```
+
 ---
 
 ## 10. Success Metrics & KPIs

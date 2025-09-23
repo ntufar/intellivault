@@ -176,7 +176,7 @@ Platform integrations (depend on services/endpoints):
   - Path: `backend/tests/unit/`
 - [ ] T053 Performance test: search p95 < 500ms at k=10 (mock index)
   - Path: `backend/tests/perf/search.perf.test.ts`
-- [ ] T054 [P] Update docs: API usage and CLI quickstart
+- [X] T054 [P] Update docs: API usage and CLI quickstart
   - Paths: `docs/PRD.md`, `specs/001-intellivault-ai-powered/quickstart.md`
 - [ ] T055 Security review: secrets handling, roles, and logs (no secrets)
   - Path: `SECURITY.md`
